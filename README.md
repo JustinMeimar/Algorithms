@@ -1,3 +1,3 @@
 # Algorithms
-algothithm practice for CMPUT 204
+Algorithm practice for 204. Some have commented in the time complexity
 
