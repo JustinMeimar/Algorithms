@@ -25,7 +25,7 @@ void printA(int* a, int l, int h){
 	for(int i =l ; i<=h; i++){
 		printf("%d, ", a[i]);
 	}
-	printf("\n");
+	printf("\n");t 
 }
 
 int main(){

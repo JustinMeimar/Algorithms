@@ -22,6 +22,4 @@ int main(){
 	}
 	free(F); //VALGRIND GANG
 	return 0;
-
-
 }

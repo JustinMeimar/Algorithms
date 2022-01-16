@@ -1,14 +1,17 @@
 #include <stdio.h>
 
+int partition(int* a, int l, int h);
+void quickSort(int* a, int l, int h);
+void swap(int* a, int i, int j);
+void printArray(int *a, int l, int h);
+
 void quickSort(int* a, int l, int h){
 	if(l < h){
 		int j = partition(a, l, h);
 		quickSort(a, l, j-1);
 		quickSort(a, j+1, h);
 	}
-}
-void swap(int* a, int i, int j){
-	int temp = a[i];
+} void swap(int* a, int i, int j){ int temp = a[i];
 	a[i] = a[j];
 	a[j] = temp;
 
@@ -56,7 +59,7 @@ int main(){
 	int len = sizeof(a)/ sizeof(a[0]);
 
 	quickSort(a, 0, len-1);
-	//partition(a, 0, len-1);
-	
 	printArray(a, 0, len-1);
+
+	return 0;
 }
