@@ -5,7 +5,7 @@
 void minMax(int *a, int n ){
 	//works for even lengthed arrays..	
 	//length of sub arrays
-	int i = 0;
+
 	int min, max;
 	if(a[0] > a[1]){			// +1 key comparison
 		min = a[1];
@@ -14,7 +14,7 @@ void minMax(int *a, int n ){
 		min = a[0];
 		max = a[1];
 	}
-	for(i=2; i<(n-n%2); i+=2){ //                 (n/2)	
+	for(int i=2; i<(n-n%2); i+=2){ //                 (n/2)	
 		//printf("%d, %d\n", a[i], a[i+1]);
 		if(a[i] < a[i+1]){						// + (n/2) -1 key comparison
 			if(min > a[i]){
