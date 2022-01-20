@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-#define SIZE 11
+#define SIZE 10
 
 void minMax(int *a, int n ){
 	//works for even lengthed arrays..	
 	//length of sub arrays
-	int i = 0, j=0;
+	int i = 0;
 	int min, max;
 	if(a[0] > a[1]){			// +1 key comparison
 		min = a[1];
@@ -31,7 +31,7 @@ void minMax(int *a, int n ){
 				max = a[i];
 			}
 		}
-		j++;
+
 	}
 	if(n%2 == 1){
 		if(a[n-1] > max){						// +1 key comp
@@ -47,7 +47,7 @@ void minMax(int *a, int n ){
 
 int main(){
 
-	int a[SIZE] = {99,3,4,56,6,6,25,1,734,90,9999};
+	int a[SIZE] = {99,3,4,56,6,6,25,1,734,90};
 	int n = sizeof(a)/sizeof(a[1]);
 	minMax(a, n);
 }
