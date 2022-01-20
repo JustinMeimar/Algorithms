@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define SIZE 10
+#define SIZE 3
 
 void minMax(int *a, int n ){
 	//works for even lengthed arrays..	
@@ -14,9 +14,12 @@ void minMax(int *a, int n ){
 		min = a[0];
 		max = a[1];
 	}
-	for(int i=2; i<(n-n%2); i+=2){ //                 (n/2)	
-		//printf("%d, %d\n", a[i], a[i+1]);
-		if(a[i] < a[i+1]){						// + (n/2) -1 key comparison
+	int i = 2;
+	printf("\n");
+	while(i<(SIZE-1)){ //while i < 10
+		
+		printf("..%d, %d, %d\n", a[i], a[i+1], i);
+		if(a[i] < a[i+1]){
 			if(min > a[i]){
 				min = a[i];
 			}
@@ -31,7 +34,8 @@ void minMax(int *a, int n ){
 				max = a[i];
 			}
 		}
-
+		
+		i+=2;
 	}
 	if(n%2 == 1){
 		if(a[n-1] > max){						// +1 key comp
@@ -47,7 +51,11 @@ void minMax(int *a, int n ){
 
 int main(){
 
-	int a[SIZE] = {99,3,4,56,6,6,25,1,734,90};
+	int a[SIZE] = {99,9,999};
 	int n = sizeof(a)/sizeof(a[1]);
+	printf("SIZE: %d, %d ", n, SIZE);
+	for(int i = 0; i<SIZE; i++){
+		printf("%d, ", a[i]);	
+	}	
 	minMax(a, n);
 }
