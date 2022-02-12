@@ -11,7 +11,9 @@ void quickSort(int* a, int l, int h){
 		quickSort(a, l, j-1);
 		quickSort(a, j+1, h);
 	}
-} void swap(int* a, int i, int j){ int temp = a[i];
+} 
+void swap(int* a, int i, int j){ 
+	int temp = a[i];
 	a[i] = a[j];
 	a[j] = temp;
 

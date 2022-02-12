@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void printA(int* a, int l, int h);
+void printA(int* a, int l, int h){
+	for(int i =l ; i<h; i++){
+		printf("%d, ", a[i]);
+	}
+
+}
+
+int someSort(int* a, int b, int e){
+	if(e == b+1){
+		printf("done");
+		return 0;
+	}
+	int p = (b + e -1)/3;
+
+	printf("real index: %d, %d, %d ", b, e, p); 
+	printf("semantic index: %d, %d, %d\n", b+1, e+1, p+1);
+	someSort(a, b, e-p);
+	someSort(a, b+p, e);
+	someSort(a, b, e-p);
+}
+
+
+
+int main(){
+
+	int a[9] = {8,1,4,9,7,3,2,6,5};
+	someSort(a, 0, 8);
+}
