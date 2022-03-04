@@ -49,30 +49,25 @@ struct job** jobSort(struct job** jobs, int n){
 }
 
 int scheduleJobs(struct job** jobs, int n){
-	struct job** threads = malloc(THREADS*sizeof(struct job*));
+	jobSort(jobs, n);
+	
+	//int threadCount = 0;
+	//	struct job** threads = malloc(THREADS*sizeof(struct job*));
+	int threads[6] = {0};	
+	
 	//six_threads == [j][][j][][][]
 	//				  | |  |
 	//				  | | 
 	//				  | 
-	jobSort(jobs, n);
-	int cur_thread = 0;
-	threads[0] = jobs[0];
-	for(int i = 1; i<n; i++){
-		//for each job
-		//make greedy choice: 
-		//put at thread that is done job, or put at new thread 
-		while(threads[cur_thread]->next_job != NULL){
-			threads[cur_thread] = threads[cur_thread]->next_job;
-		}	
-		while(threads[cur_thread]->end > jobs[i]->start){
-			cur_thread++;
+	/*
+	threads[0] = jobs[0];	
+	for(int i=1; i<n; i++){
+		for(int t=0; i<THREADS; t++){
+			struct job* cur = threads[0];	
+			while(cur->next_job != )		
 		}
-		while()
-		threads[cur_thread] = jobs[i];
-			
-		printf("%d", cur_thread);
-		
 	}
+	*/
 
 	return 0;
 }
