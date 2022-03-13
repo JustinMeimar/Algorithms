@@ -16,23 +16,24 @@ void LCS(char* X, int len_x, char* Y, int len_y){
 	}
 
 	//dynammic programming starts:
-		
+	// len x = 15, len y = 4	
+	
+	// why did I do this with pointers, it's completely unreadable.
 	for(int i = 1; i<len_x; i++){		
 		for(int j = 1; j<len_y; j++){
 
-			arr[i*len_y + j] = arr[(i-1)*len_y + j]; //set inital lowest optimal
+			arr[i*len_x + j] = arr[(i-1)*len_x + j]; //set inital lowest optimal
 			
-			if(arr[i*len_y + j-1] > arr[i*len_y + j]){
-				arr[i*len_y + j] = arr[i*len_y + j-1];
+			if(arr[i*len_x + j-1] > arr[i*len_x + j]){
+				arr[i*len_x + j] = arr[i*len_x + j-1];
 			}
 
-			if(X[i-1] == Y[j-1] && arr[(i-1)*len_y + j-1] + 1 > arr[i*len_y + j] ){
+			if(X[i-1] == Y[j-1] && arr[(i-1)*len_x + j-1] + 1 > arr[i*len_x + j] ){
 					
-				arr[i*len_y + j] = arr[(i-1)*len_y + j-1] + 1;
+				arr[i*len_x + j] = arr[(i-1)*len_x + j-1] + 1;
 			}	
 		}	
 	}
-	
 	
 	//print dp array
 	for(int k = 0; k<(len_x*len_y); k++){
