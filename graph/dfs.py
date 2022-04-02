@@ -20,13 +20,17 @@ def traverse_dfs(G, n, q):
 
 def bfs(G, s):
     S = []
+    s.color = "Grey"
     S.append(s)
-    
+    print("S:", [x.val for x in S]) 
     while S != []:
-        v = S.pop() #remove from list
+        v = S.pop(0) #remove from list
+        print("S.1", [x.val for x in S], "popped:", v.val)
+        
         for n in G.graph_list[v.val]:
             
             if n.color == "White":
+                print(n.val, n.color)
                 n.color = "Grey"
                 S.append(n)
 

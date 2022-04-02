@@ -15,7 +15,7 @@ class Graph:
         self.time = 0
         self.trvsl_arr = []
         self.v = v
-        self.e = 15
+        self.e = 7
 
         self.graph_list = [[] for x in range(v)]
         self.graph_matrix = [[0 for y in range(v)] for x in range(v)] 
@@ -28,7 +28,7 @@ class Graph:
             
             #no self loops or double edges
             if dest.val in [x.val for x in self.graph_list[src.val]] or dest.val == src.val:
-                while dest.val in self.graph_list[src.val] or dest.val == src.val:
+                while dest.val in [x.val for x in self.graph_list[src.val]] or dest.val == src.val:
                     src = Node(random.randrange(0, self.v))
                     dest = Node(random.randrange(0, self.v))
 
