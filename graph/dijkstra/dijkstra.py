@@ -38,10 +38,23 @@ class minHeap():
         i = self.heap.index(node)
         return i
 
-    def decreaseKey(self, old_node, new_node):
-        i = self.heap.index(old_node)
-        self.heap.pop(i)
-        self.insert(new_node) 
+    def decreaseKey(self, n, val):
+        """
+         i = self.heap.index(old_node)   #where is node_to_be updated
+        node = self.heap[i]             #get node
+        node.dist = val                 #update
+        self.heap.pop(i)                #remove old node
+        self.insert(node)
+        """
+        i = self.heap.index(n)
+        new_node = self.heap[i]
+        new_node.dist = val
+        self.heap.remove(n)
+        self.size -= 1
+
+        self.insert(new_node)
+
+
 
     def insert(self, node):
         self.heap.insert(0, node)
@@ -81,25 +94,26 @@ class Graph:
     
     def dijkstra(self, src):
         #initialize all nodes into a priority queue (min-heap) and remove the source node
-        
+
+        dist_table = {}        
         src.dist = 0
+
         Q = minHeap()
         for n in self.nodes:
             Q.insert(n)
-
-        print(Q)
-
-        src = Q.extractMin()
-        print(Q)
-        for e in self.arr[src.v-1]:
-            if e[1] < e[0].dist:
-                #new_node = node(e[0].v)
-                #new_node.dist = e[1]
-                #Q.decreaseKey(e[0], new_node)
-                 
-                print(e[0].v, e[0].dist, e[1])
-
         
+        while Q.size != 0:
+            src = Q.extractMin()
+           
+            for e in self.arr[src.v-1]:
+                w = e[1] #weight of edge
+                tar_node = e[0]
+                if tar_node.dist > src.dist + w:
+                    
+                    Q.decreaseKey(e[0], e[1] + src.dist) 
+                    dist_table[e[0].v] = e[1] + src.dist 
+ 
+        print("Shortest Distance for Each Vertex: \n", dist_table)     
         #find neighbours of src
         
 
@@ -114,6 +128,8 @@ class Graph:
         
 
 if __name__ == "__main__":
+    
+    
     
     G = Graph(5)
 
@@ -135,20 +151,31 @@ if __name__ == "__main__":
     src = n1
     G.dijkstra(n1)
     
-    """
-    h = minHeap()
     
-    n1 = node(1)
-    h.insert(n1) 
-    h.insert(node(2))
-    h.insert(node(3))
-    h.insert(node(4))
-    h.insert(node(5))
-      
-    print(h)
+
+    # h = minHeap()
+    
+    # n1 = node(1)
+    # h.insert(n1) 
+    
+    # n2 = node(2)
+    # h.insert(n2)
+
+    # n3 = node(4)
+    # h.insert(n3)
+
+    # h.insert(node(4))
+    # n5 = node(5)
+    
+    # h.insert(n5)
+    # print(h, h.size)
+    # h.decreaseKey(n3, 1) 
 
 
-    """
+    # h.decreaseKey(n1, 6) 
+    # h.decreaseKey(n5, 7)
+    # h.decreaseKey(n2, 4)
+    # print(h, h.size)
 
 """
 What are the properties of the heap?
