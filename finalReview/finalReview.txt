@@ -1,0 +1,50 @@
+***** Final Review *****
+
+Topics:
+
+	1. Graphs 
+		1.a: DFS / BFS:	
+		1.b: DAG, SCC:
+		1.c: MST Via Kruskal and Prim:
+		1.d: Dijkstra:
+		1.e: Bellman-Ford:
+		1.f: Floyd-Warshall:
+
+	2. Algorithm Methods:
+		2.a: Divide and Conquer:
+			-- Merge Sort
+			-- Quick Sort
+			-- Exponentiation:
+			-- Multiplication: 	
+			-- Strassen's Algorithm
+				
+		2.b: Greedy Approach:
+			--  
+		2.c: Dynamic Programming
+			-- 
+
+	3. Data Structures:
+		3.a Heap:
+			- Min / Max Heap
+			- Heapify (Min / Max)
+			- Heapsort
+			- k-arry Heap (Priority Queue)
+		
+		3.b Tree:
+			- Binary Search Tree
+			- Balanced BST
+			- Methods:
+				- Insert()
+				- FindMin()
+				- Delete()
+					- Complex Cases for Delete:
+
+				- InOrder/PostOrder Traversals:
+
+		3.c Hash Table:
+			- 
+		
+	4. Foundations:
+		- Running Time Analysis of All Previously Mentioned 
+		- Inductive Proofs
+		
