@@ -33,8 +33,7 @@ class minHeap():
     
     # O(logn)
     def insert(self, num):
-            
-        
+             
         self.heap.insert(0, num)
         self.size += 1
         self.minHeapify(0)
