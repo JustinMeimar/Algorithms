@@ -190,8 +190,19 @@ Things to Include on Cheet Sheet:
 
 6. Floyd-Warshal
 	
-	-Dynamic Programming Algorithm
+	- Dynamic Programming Algorithm
+
+	- Compute the shortest path from any node to any other node in G
+
+	- Naive approach is to run Dijkstra or Belman-Ford on every single n in V(G)
+		This approach has the complexity	T(n) e O(n((n+m)logn))) if dijkstra
+											T(n) e O(n(n^2*m))	if bellman-ford
+	- Dynamic progrmamming soluton makes tabulations on the repeated recursive calls
+		in the naive approach.
 	
+	- The table D is 3-Dimensional D[i, j, k] where D[i ,j, k] represents the shortest
+		path from vertix i to vertex j using subset {u1, u2.... uk} intermediate nodes
+	- Filling in the table is more complex than other DP solutions. 
 
 
 

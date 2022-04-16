@@ -1,0 +1,96 @@
+-------------------------------------------------------------------
+1.Graph	
+-------------------------------------------------------------------
+	Application					Running Time				Summary
+-------------------------------------------------------------------
+	- BFS						O(n+m)
+	
+	- DFS						O(n+m)
+	
+	- Topological Sort			
+		- SRSN (Khan's)			O(n+m)
+		- DFS reverse ftime		O(n+m)
+	
+	- SCC via G & G^T			O(3(n+m)) 
+							  = O(n+m)
+
+	- MST
+		- Kruskals's			T(n)	=	O(n) 
+										+ O(mlogm) 
+										+ O(m)
+										+ O(nlogn)
+									   <= 
+								O((n+m)logn)
+
+		
+		- Prims Algorithm		T(n) = O(n) + 
+									sum(1+deg(u))logn
+									
+								     = O(mlogn)
+
+
+	
+	- Dijkstra's Algorithm		O((n+m)logn)
+	
+	- DAG-SSSP					O(n+m) + O(n) + O(m)
+							   =O(n+m)
+
+	- Bellman Ford				O(nm) (2 nested loops)
+
+	- FLoyd-Warshall			naive: run dijkstra / BF n time
+								O(n(n+m)logn)		Dijkstra
+								O(n(nm)) = O(n^2*m) BF
+
+								DP approach:
+
+								D[i,j,k] = min(D[i,j,k-1], D[i,k,k-1] + D[k,j,k-1])
+								filled using 3 loops over V(G):
+									O(n^3) 
+
+									note: no aymptotic improvment over dijkstra n times:
+									
+									O(n^3) v.s O(n*(n+m)logn)
+									
+									however we done have to use any complex data structures. 
+
+-------------------------------------------------------------------
+pseudoCodes:
+-------------------------------------------------------------------	
+	proceedure PrimsMST(G, s):						
+		for each v e V(g)								
+			v.dist = inf
+			v.pred = NULL
+
+		s.key = 0
+		init min-heap Q = {s, v1, v2 ... vn}
+		while Q != {0}:
+			u = extractMin(Q)
+			for v in u.neighbours:
+				if v.dist > w(u,v):
+					v.dist <-- w(u,v)
+					v.pred = u
+					decreaseKey(Q, v, w(u,v))
+-------------------------------------------------------------------
+	proceedure KruskalMST(G):
+		for v in V(G):
+			define C(v) # cluster |C| = 1
+
+		T <-- {0}	
+		sort E(G) by non-decreasing order # cheapest edge first
+		
+		for e =(u,v) in sorted E(G):
+			if C(u) != C(v):
+				T <-- T U {e}
+-------------------------------------------------------------------
+		
+
+
+
+
+
+
+
+
+
+
+
