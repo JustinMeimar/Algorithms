@@ -1,0 +1,33 @@
+dynamic programming applications:
+
+1. Integral Knapsack
+2. Longest Common Subsequence
+3. Longest Sub Palindrome
+4. Matrix Chain Multiplication
+5. Bellman-Ford & Floyd-Warshall 
+---------------------------------------
+1. Integral Knapsack
+	
+	Recursive Definition:
+
+	DP Choice:
+
+	Table Definition:
+
+---------------------------------------
+2. Longest Common Subsqequence
+
+	Recursive Definition:
+
+	DP Choice:
+
+	Table Definition:
+
+---------------------------------------
+3. Longest Sub Palindrome:
+
+	Recursive Definition:
+
+	DP Choice:
+
+	Table Definition:
