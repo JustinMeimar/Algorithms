@@ -44,6 +44,7 @@ void LCS(char* X, int len_x, char* Y, int len_y){
 	}
 
 	printf("\nanswer: %d", arr[len_x*len_y]);
+	free(arr);
 }
 
 int main(){
